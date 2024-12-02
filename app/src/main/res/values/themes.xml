@@ -28,7 +28,7 @@
     <style name="MainButton.Default" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">#FF6200EE</item>
         <item name="android:textColor">#FFFFFF</item>
-        <item name="cornerRadius">8dp</item>
+        <item name="cornerRadius">15dp</item>
         <item name="android:layout_width">343dp</item>
         <item name="android:layout_height">50dp</item>
     </style>

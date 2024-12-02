@@ -56,4 +56,10 @@
         android:gravity="top"
         />
 
+    <com.google.android.material.button.MaterialButton
+        style="@style/MainButton.Default"
+        android:text="Default Button"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="152dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
