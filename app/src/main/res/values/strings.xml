@@ -6,4 +6,6 @@
     <string name="welcome_bac"> Welcome Back!</string>
     <string name="welcome_text"> Welcome back! Log in to continue finding recipes that match your available ingredients.</string>
     <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
 </resources>

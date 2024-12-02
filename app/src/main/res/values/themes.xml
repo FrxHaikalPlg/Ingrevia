@@ -15,11 +15,11 @@
     </style>
 
     <style name="MainButton.Default" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">#FF6200EE</item>
+        <item name="backgroundTint">@color/primary_200</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="cornerRadius">15dp</item>
         <item name="android:layout_width">343dp</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">60dp</item>
     </style>
 
     <style name="MainButton.Ver1" parent="Widget.MaterialComponents.Button">

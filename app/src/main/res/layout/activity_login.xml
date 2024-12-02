@@ -58,7 +58,7 @@
 
     <com.google.android.material.button.MaterialButton
         style="@style/MainButton.Default"
-        android:text="Default Button"
+        android:text="@string/login"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="152dp" />
 
