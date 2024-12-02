@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/welcome_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/welcome_bac"
+            android:layout_width="345dp"
+            android:layout_height="22dp"
+            android:text="@string/welcome_bac"
+            android:textAppearance="@style/welcome_bac"
+            android:lineSpacingExtra="-5sp"
+            android:gravity="center_horizontal|top" />
+
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="345dp"
+            android:layout_height="34dp"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="-4sp"
+            android:text="@string/welcome_text"
+            android:textAppearance="@style/welcome_text"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="345dp"
+        android:layout_height="17dp"
+        android:text="@string/email"
+        android:textAppearance="@style/email"
+        android:lineSpacingExtra="-4sp"
+        android:gravity="top"
+        />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="345dp"
+        android:layout_height="17dp"
+        android:text="@string/password"
+        android:textAppearance="@style/password"
+        android:lineSpacingExtra="-4sp"
+        android:gravity="top"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
