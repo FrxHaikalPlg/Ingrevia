@@ -14,4 +14,7 @@
     <string name="email_minimum_length">Email must be at least 10 characters</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="logo">Logo</string>
+    <string name="continue_with_google">Continue With Google</string>
+    <string name="or">Or</string>
+    <string name="back_arrow">Back Arrow</string>
 </resources>
