@@ -19,4 +19,9 @@
     <string name="back_arrow">Back Arrow</string>
     <string name="don_t_have_account">Don’t have account?</string>
     <string name="register">Register</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_text">Sign up to find recipes based on your ingredients and save your favorites for easy access.</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
