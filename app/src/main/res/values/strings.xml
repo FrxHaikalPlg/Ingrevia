@@ -17,4 +17,6 @@
     <string name="continue_with_google">Continue With Google</string>
     <string name="or">Or</string>
     <string name="back_arrow">Back Arrow</string>
+    <string name="don_t_have_account">Don’t have account?</string>
+    <string name="register">Register</string>
 </resources>
