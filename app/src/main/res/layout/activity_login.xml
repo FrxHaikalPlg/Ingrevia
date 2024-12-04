@@ -50,20 +50,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        style="@style/TextInputLayout.Default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email"
         app:startIconDrawable="@drawable/ic_home">
 
-        <com.dicoding.storyapp.view.customview.CustomEmailEditText
+        <com.frxhaikal_plg.ingrevia.ui.customview.CustomEmailEditText
             android:id="@+id/ed_login_email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:ems="10"
             android:inputType="textEmailAddress"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -82,30 +78,35 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordEditTextLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        app:endIconMode="password_toggle"
+        style="@style/TextInputLayout.Default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password"
         app:startIconDrawable="@drawable/ic_home">
 
-        <com.dicoding.storyapp.view.customview.CustomPasswordEditText
+        <com.frxhaikal_plg.ingrevia.ui.customview.CustomPasswordEditText
             android:id="@+id/ed_login_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/forgot_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:lineSpacingExtra="-4sp"
+        app:layout_constraintTop_toBottomOf="@id/passwordEditTextLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/MainButton.Default"
         android:text="@string/login"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@+id/forgot_pass"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
