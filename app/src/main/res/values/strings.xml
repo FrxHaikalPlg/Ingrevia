@@ -39,5 +39,7 @@
     <string name="profile_text">Share your details for meal recommendations tailored to your health goals!</string>
     <string name="weight_must_be_valid">Weight must be a number between 20 and 200</string>
     <string name="height_must_be_valid">Height must be a valid number between 100 and 250</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
