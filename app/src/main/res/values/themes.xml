@@ -32,6 +32,16 @@
         <item name="android:layout_height">60dp</item>
     </style>
 
+    <style name="MainButton.Ver2" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/primary_200</item>
+        <item name="cornerRadius">15dp</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="strokeColor">@color/primary_200</item>
+        <item name="android:layout_width">343dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
     <style name="CustomRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="regular_12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
     <style name="regular_14">
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
