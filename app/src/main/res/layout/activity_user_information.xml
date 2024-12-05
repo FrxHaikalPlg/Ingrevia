@@ -64,7 +64,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:lineSpacingExtra="-4sp"
-                android:text="@string/sign_text"
+                android:text="@string/profile_text"
                 android:textAppearance="@style/regular_14"
                 android:textColor="@color/neutral_500"/>
         </LinearLayout>
@@ -125,6 +125,57 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/act_freq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/select_your_activity_frequency"
+            android:textColor="@color/neutral_700"
+            android:textAppearance="@style/regular_14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightEditTextLayout" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/act_freq">
+
+                <RadioButton
+                    android:id="@+id/radio_basic"
+                    style="@style/CustomRadioButton"
+                    android:text="@string/basic_for_activities_with_minimal_steps" />
+
+                <RadioButton
+                    android:id="@+id/radio_simple"
+                    style="@style/CustomRadioButton"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/simple_for_activities_with_easy_steps_but_slightly_more_than_basic" />
+
+                <RadioButton
+                    android:id="@+id/radio_standard"
+                    style="@style/CustomRadioButton"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/standard_for_activities_with_a_moderate_number_of_steps" />
+
+                <RadioButton
+                    android:id="@+id/radio_advanced"
+                    style="@style/CustomRadioButton"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/advanced_for_activities_that_require_more_steps_and_are_more_complex" />
+
+                <RadioButton
+                    android:id="@+id/radio_comprehensive"
+                    style="@style/CustomRadioButton"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/comprehensive_for_activities_with_the_most_detailed_and_numerous_steps" />
+            </RadioGroup>
+
+        <TextView
             android:id="@+id/allergy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,7 +185,7 @@
             android:textColor="@color/neutral_700"
             android:textAppearance="@style/regular_14"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/heightEditTextLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/AllergyEditTextLayout"
@@ -142,7 +193,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/allergy"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeColor="@color/neutral_700">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ed_allergy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton

@@ -29,4 +29,15 @@
     <string name="allergy_optional">Allergy (Optional)</string>
     <string name="get_started">Get Started</string>
     <string name="set_up_your_profile">Set Up Your Profile!</string>
+    <string name="input_your_allergy_optional">Input your Allergy (Optional)</string>
+    <string name="select_your_activity_frequency">Select your activity frequency</string>
+    <string name="basic_for_activities_with_minimal_steps">Basic, for activities with minimal steps.</string>
+    <string name="simple_for_activities_with_easy_steps_but_slightly_more_than_basic">Simple, for activities with easy steps but slightly more than basic.</string>
+    <string name="standard_for_activities_with_a_moderate_number_of_steps">Standard, for activities with a moderate number of steps.</string>
+    <string name="advanced_for_activities_that_require_more_steps_and_are_more_complex">Advanced, for activities that require more steps and are more complex.</string>
+    <string name="comprehensive_for_activities_with_the_most_detailed_and_numerous_steps">Comprehensive, for activities with the most detailed and numerous steps.</string>
+    <string name="profile_text">Share your details for meal recommendations tailored to your health goals!</string>
+    <string name="weight_must_be_valid">Weight must be a number between 20 and 200</string>
+    <string name="height_must_be_valid">Height must be a valid number between 100 and 250</string>
+
 </resources>

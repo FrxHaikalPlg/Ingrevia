@@ -16,8 +16,8 @@ class CustomWeightEditText @JvmOverloads constructor(
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                error = if (!isValidPassword(s)) {
-                    context.getString(R.string.password_must)
+                error = if (!isValidWeight(s)) {
+                    context.getString(R.string.weight_must_be_valid)
                 } else {
                     null
                 }
@@ -27,7 +27,13 @@ class CustomWeightEditText @JvmOverloads constructor(
         })
     }
 
-    private fun isValidPassword(password: CharSequence?): Boolean {
-        return !password.isNullOrEmpty() && password.length >= 8
+    private fun isValidWeight(weight: CharSequence?): Boolean {
+        if (weight.isNullOrEmpty()) return false
+        return try {
+            val weightValue = weight.toString().toInt()
+            weightValue in 20..200
+        } catch (e: NumberFormatException) {
+            false
+        }
     }
 }
