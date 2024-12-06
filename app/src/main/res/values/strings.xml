@@ -48,5 +48,8 @@
     <string name="intro2">Make the most of what’s in your pantry to create delicious, budget friendly, and nutritious meals without the need to shop for extra ingredients.</string>
     <string name="title_intro3">Enjoy a Variety of Recipes and Convenient Shopping</string>
     <string name="intro3">Explore new recipe inspirations for every taste and shop your favorite ingredients with ease, making your cooking experience more enjoyable.</string>
+    <string name="recipes_name">Recipes Name</string>
+    <string name="calories">Calories</string>
+    <string name="steps">Steps</string>
 
 </resources>
