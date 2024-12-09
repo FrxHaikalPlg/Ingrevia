@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.frxhaikal_plg.ingrevia.MainActivity
 import com.frxhaikal_plg.ingrevia.R
+import com.frxhaikal_plg.ingrevia.ui.introduction.IntroductionActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -16,7 +16,14 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val introShown = getSharedPreferences("app_prefs", MODE_PRIVATE)
+                .getBoolean("intro_shown", false)
+            
+            val intent = if (introShown) {
+                Intent(this, LoginActivity::class.java)
+            } else {
+                Intent(this, IntroductionActivity::class.java)
+            }
             startActivity(intent)
             finish()
         }, 1500)
