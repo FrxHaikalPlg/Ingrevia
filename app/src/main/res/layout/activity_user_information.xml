@@ -70,6 +70,46 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/gender"
+            android:textAppearance="@style/regular_14"
+            android:textColor="@color/neutral_700"
+            app:layout_constraintStart_toStartOf="@+id/weightInputLayout"
+            app:layout_constraintTop_toBottomOf="@id/welcome_container" />
+
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/gender"
+            app:layout_constraintTop_toBottomOf="@id/gender">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                android:textColor="@color/neutral_700"
+                style="@style/CustomRadioButton"
+                android:textAppearance="@style/regular_14" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/female"
+                android:textColor="@color/neutral_700"
+                style="@style/CustomRadioButton"
+                android:textAppearance="@style/regular_14" />
+        </RadioGroup>
+
+        <TextView
             android:id="@+id/weight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -78,7 +118,7 @@
             android:textAppearance="@style/regular_14"
             android:textColor="@color/neutral_700"
             app:layout_constraintStart_toStartOf="@+id/weightInputLayout"
-            app:layout_constraintTop_toBottomOf="@id/welcome_container" />
+            app:layout_constraintTop_toBottomOf="@+id/genderRadioGroup" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/weightInputLayout"
@@ -134,12 +174,12 @@
 
             <RadioGroup
                 android:id="@+id/radioGroup"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/act_freq"
-                app:layout_constraintEnd_toEndOf="@id/heightInputLayout"
-                app:layout_constraintStart_toStartOf="@+id/heightInputLayout">
+                app:layout_constraintStart_toStartOf="@+id/heightInputLayout"
+                app:layout_constraintEnd_toEndOf="@+id/heightInputLayout">
 
                 <RadioButton
                     android:id="@+id/radio_basic"
