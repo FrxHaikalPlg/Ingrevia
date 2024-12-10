@@ -3,29 +3,38 @@ package com.frxhaikal_plg.ingrevia.ui
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.frxhaikal_plg.ingrevia.MainActivity
 import com.frxhaikal_plg.ingrevia.R
+import com.frxhaikal_plg.ingrevia.data.local.UserPreferences
 import com.frxhaikal_plg.ingrevia.ui.introduction.IntroductionActivity
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
+    private lateinit var userPreferences: UserPreferences
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            val introShown = getSharedPreferences("app_prefs", MODE_PRIVATE)
-                .getBoolean("intro_shown", false)
-            
-            val intent = if (introShown) {
-                Intent(this, LoginActivity::class.java)
-            } else {
-                Intent(this, IntroductionActivity::class.java)
-            }
-            startActivity(intent)
-            finish()
-        }, 1500)
+        
+        userPreferences = UserPreferences(this)
+        
+        lifecycleScope.launch {
+            val isLoggedIn = userPreferences.isLoggedIn.first()
+            navigateToNextScreen(isLoggedIn)
+        }
+    }
+    
+    private fun navigateToNextScreen(isLoggedIn: Boolean) {
+        val intent = if (isLoggedIn) {
+            Intent(this, MainActivity::class.java)
+        } else {
+            Intent(this, IntroductionActivity::class.java)
+        }
+        startActivity(intent)
+        finish()
     }
 }

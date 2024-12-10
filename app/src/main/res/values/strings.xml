@@ -51,5 +51,22 @@
     <string name="recipes_name">Recipes Name</string>
     <string name="calories">Calories</string>
     <string name="steps">Steps</string>
+    <string name="please_complete_data">Please complete your data</string>
+    <string name="failed_save_data">Failed to save data: %1$s</string>
+    <string name="please_complete_login">Please complete login data</string>
+    <string name="please_complete_register">Please complete registration data</string>
+    <string name="login_failed">Login failed: %1$s</string>
+    <string name="register_failed">Registration failed: %1$s</string>
+    <string name="password_not_match">Password does not match</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="hint_confirm_password">Confirm your password</string>
+    <string name="google_sign_in_failed">Google Sign In failed: %1$s</string>
+    <string name="loading">Loading...</string>
+    <string name="logging_in">Logging in...</string>
+    <string name="registering">Registering...</string>
+    <string name="saving_data">Saving data...</string>
+    <string name="hint_height">Enter your height (cm)</string>
+    <string name="hint_weight">Enter your weight (kg)</string>
 
 </resources>

@@ -51,34 +51,4 @@
             android:textColor="@color/neutral_500"/>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/dot_page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/logo"
-        app:layout_constraintBottom_toTopOf="@+id/next_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="10dp"
-        app:srcCompat="@drawable/dotpage2" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/next_button"
-        style="@style/MainButton.Default"
-        android:text="@string/next"
-        android:textAppearance="@style/medium_16"
-        app:layout_constraintBottom_toTopOf="@id/skip_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/skip_button"
-        style="@style/MainButton.Ver2"
-        android:text="@string/skip"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="30dp"
-        android:textAppearance="@style/medium_16"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
