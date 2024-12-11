@@ -1,4 +1,4 @@
-package com.frxhaikal_plg.ingrevia.ui
+package com.frxhaikal_plg.ingrevia.ui.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,8 @@ import com.frxhaikal_plg.ingrevia.MainActivity
 import com.frxhaikal_plg.ingrevia.R
 import com.frxhaikal_plg.ingrevia.data.local.UserPreferences
 import com.frxhaikal_plg.ingrevia.databinding.ActivityLoginBinding
+import com.frxhaikal_plg.ingrevia.ui.RegisterActivity
 import com.frxhaikal_plg.ingrevia.ui.introduction.IntroductionActivity
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {

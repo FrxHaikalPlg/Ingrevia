@@ -8,7 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.frxhaikal_plg.ingrevia.R
 import com.frxhaikal_plg.ingrevia.data.local.UserPreferences
 import com.frxhaikal_plg.ingrevia.databinding.ActivityIntroductionBinding
-import com.frxhaikal_plg.ingrevia.ui.LoginActivity
+import com.frxhaikal_plg.ingrevia.ui.login.LoginActivity
 import kotlinx.coroutines.launch
 
 class IntroductionActivity : AppCompatActivity() {
