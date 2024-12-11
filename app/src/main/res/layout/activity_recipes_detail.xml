@@ -32,21 +32,25 @@
         app:layout_constraintStart_toEndOf="@id/back_arrow"
         app:layout_constraintTop_toTopOf="@id/back_arrow" />
 
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:id="@+id/iv_item_photo"
         android:layout_width="344dp"
         android:layout_height="200dp"
         android:layout_marginTop="25dp"
-        android:background="@drawable/rounded_background"
-        android:clipToOutline="true"
-        android:outlineProvider="background"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
+        app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipes_detail"
-        tools:ignore="UnusedAttribute" />
+        app:layout_constraintTop_toBottomOf="@+id/recipes_detail">
+
+        <ImageView
+            android:id="@+id/iv_recipe_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:contentDescription="@string/recipe_image" />
+    </androidx.cardview.widget.CardView>
 
     <FrameLayout
         android:id="@+id/frame_favorite"
@@ -204,7 +208,10 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/steps_and_calories_container" />
+        app:layout_constraintTop_toBottomOf="@+id/steps_and_calories_container"
+        app:tabTextAppearance="@style/TabTextAppearance"
+        app:tabMode="fixed"
+        app:tabGravity="fill" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"

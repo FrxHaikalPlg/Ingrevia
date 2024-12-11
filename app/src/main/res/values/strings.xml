@@ -87,5 +87,5 @@
     <string name="let_s_find_healthy_recipes">Let\'s find healthy recipes!</string>
     <string name="welcome_back_ingrevian">Welcome back Ingrevian</string>
     <string name="search_result">Search Result</string>
-
+    <string name="recipe_image">Recipe Image</string>
 </resources>
