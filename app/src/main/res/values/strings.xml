@@ -84,5 +84,8 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_nutritions">NutritionsActivity</string>
     <string name="nutritions_fact">Nutritions Fact</string>
+    <string name="let_s_find_healthy_recipes">Let\'s find healthy recipes!</string>
+    <string name="welcome_back_ingrevian">Welcome back Ingrevian</string>
+    <string name="search_result">Search Result</string>
 
 </resources>
