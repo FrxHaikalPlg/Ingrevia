@@ -130,7 +130,7 @@
             <com.frxhaikal_plg.ingrevia.ui.customview.CustomWeightEditText
                 android:id="@+id/ed_weight"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:hint="@string/hint_weight"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -156,8 +156,34 @@
             <com.frxhaikal_plg.ingrevia.ui.customview.CustomHeightEditText
                 android:id="@+id/ed_height"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:hint="@string/hint_height"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/age"
+            android:textColor="@color/neutral_700"
+            android:textAppearance="@style/regular_14"
+            app:layout_constraintStart_toStartOf="@+id/heightInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/heightInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ageInputLayout"
+            style="@style/TextInputLayout.Default"
+            app:layout_constraintTop_toBottomOf="@+id/age"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.frxhaikal_plg.ingrevia.ui.customview.CustomHeightEditText
+                android:id="@+id/ed_age"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hint_age"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -170,7 +196,7 @@
             android:textColor="@color/neutral_700"
             android:textAppearance="@style/regular_14"
             app:layout_constraintStart_toStartOf="@+id/heightInputLayout"
-            app:layout_constraintTop_toBottomOf="@+id/heightInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/ageInputLayout" />
 
             <RadioGroup
                 android:id="@+id/radioGroup"

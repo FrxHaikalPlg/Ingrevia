@@ -68,7 +68,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:iconifiedByDefault="false"
-            android:queryHint="Cari resep makanan..."
+            android:queryHint="Find delicious recipe!"
             app:queryBackground="@android:color/transparent"/>
 
     </com.google.android.material.card.MaterialCardView>

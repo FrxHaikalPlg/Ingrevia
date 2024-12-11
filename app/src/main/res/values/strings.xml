@@ -88,4 +88,6 @@
     <string name="welcome_back_ingrevian">Welcome back Ingrevian</string>
     <string name="search_result">Search Result</string>
     <string name="recipe_image">Recipe Image</string>
+    <string name="hint_age">Enter your age</string>
+    <string name="age">Age</string>
 </resources>
