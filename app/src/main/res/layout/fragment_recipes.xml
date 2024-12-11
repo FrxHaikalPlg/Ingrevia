@@ -7,16 +7,88 @@
     tools:context=".ui.recipes.RecipesFragment">
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/recipes_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-5sp"
+        android:text="@string/choose_ingredients_make_your_meal"
+        android:textAppearance="@style/semibold_18"
+        android:textColor="@color/primary_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/recipes_title_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-5sp"
+        android:text="@string/select_cook_and_enjoy"
+        android:textAppearance="@style/regular_14"
+        android:textColor="@color/neutral_500"
+        app:layout_constraintStart_toStartOf="@+id/recipes_title"
+        app:layout_constraintTop_toBottomOf="@+id/recipes_title" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/search_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipes_title_sub"
+        app:strokeColor="@color/neutral_300"
+        app:strokeWidth="1dp">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="282dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:iconifiedByDefault="false"
+            android:queryHint="Find delicious recipe!"
+            app:queryBackground="@android:color/transparent" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <FrameLayout
+        android:id="@+id/frame_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background3"
+        android:padding="12dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/search_bar"
+        app:layout_constraintStart_toEndOf="@+id/search_bar"
+        app:layout_constraintTop_toTopOf="@+id/search_bar">
+
+        <ImageView
+            android:id="@+id/imageViewFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/favorite"
+            android:src="@drawable/ic_search"
+            app:tint="@color/neutral_100" />
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvcategoriesingredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scrollbars="horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvingredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/rvcategoriesingredients" />
 </androidx.constraintlayout.widget.ConstraintLayout>
