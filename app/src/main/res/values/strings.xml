@@ -72,5 +72,12 @@
     <string name="female">Female</string>
     <string name="male">Male</string>
     <string name="protein_30g">Protein: 30g</string>
+    <string name="favorite">Favorite</string>
+    <string name="recipes_detail">Recipes Detail</string>
+    <string name="recipes_title">Recipes Title</string>
+    <string name="number_steps">number_steps</string>
+    <string name="calories_value">calories_value</string>
+    <string name="total_steps">Total Steps</string>
+    <string name="total_calories">Total Calories</string>
 
 </resources>
