@@ -51,4 +51,13 @@
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
         <item name="android:textColor">@color/neutral_700</item>
     </style>
+
+    <style name="Theme.Ingrevia.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Ingrevia.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Ingrevia.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
