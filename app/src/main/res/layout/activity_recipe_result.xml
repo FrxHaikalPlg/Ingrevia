@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.PopularActivity">
+    tools:context=".ui.RecipeResultActivity">
 
     <ImageView
         android:id="@+id/back_arrow"
@@ -19,19 +19,18 @@
         android:layout_marginStart="32dp"/>
 
     <TextView
-        android:id="@+id/popular"
+        android:id="@+id/recipe_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:lineSpacingExtra="-5sp"
-        android:text="@string/search"
+        android:text="@string/recipes_result"
         android:textAppearance="@style/semibold_18"
         android:textColor="@color/primary_200"
-        app:layout_constraintBottom_toBottomOf="@id/back_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/back_arrow" />
+        app:layout_constraintTop_toTopOf="@+id/back_arrow" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvpopular"
@@ -43,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/popular"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_result"
         app:layout_constraintVertical_bias="0.527" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
