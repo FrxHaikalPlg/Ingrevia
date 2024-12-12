@@ -7,7 +7,7 @@
     tools:context=".ui.recipes.RecipesFragment">
 
     <TextView
-        android:id="@+id/recipes_title"
+        android:id="@+id/profile_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -30,8 +30,8 @@
         android:text="@string/select_cook_and_enjoy"
         android:textAppearance="@style/regular_14"
         android:textColor="@color/neutral_500"
-        app:layout_constraintStart_toStartOf="@+id/recipes_title"
-        app:layout_constraintTop_toBottomOf="@+id/recipes_title" />
+        app:layout_constraintStart_toStartOf="@+id/profile_title"
+        app:layout_constraintTop_toBottomOf="@+id/profile_title" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/search_bar"

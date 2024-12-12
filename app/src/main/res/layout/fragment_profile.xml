@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileFragment">
 
+    <TextView
+        android:id="@+id/profile_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-5sp"
+        android:text="@string/profile"
+        android:textAppearance="@style/semibold_18"
+        android:textColor="@color/primary_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profile_image"
         android:layout_width="111dp"
@@ -15,7 +29,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_title"
         app:shapeAppearanceOverlay="@style/CircleImage" />
 
     <TextView

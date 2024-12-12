@@ -107,4 +107,6 @@
     <string name="about_developer">About Developer</string>
     <string name="log_out">Log Out</string>
     <string name="activity_category">Activity Category</string>
+    <string name="profile">Profile</string>
+    <string name="popular">Popular</string>
 </resources>
