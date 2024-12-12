@@ -40,15 +40,14 @@
         app:layout_constraintStart_toEndOf="@id/profile_image"
         app:layout_constraintTop_toBottomOf="@id/profile_name" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/edit_profile_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Edit Profile"
-        android:backgroundTint="@color/primary_200"
-        app:layout_constraintStart_toStartOf="@id/profile_email"
-        app:layout_constraintTop_toBottomOf="@id/profile_email" />
+        style="@style/MainButton.Edit"
+        android:width="140dp"
+        android:text="@string/edit_profile"
+        android:textAppearance="@style/medium_16"
+        app:layout_constraintStart_toStartOf="@+id/profile_email"
+        app:layout_constraintTop_toBottomOf="@+id/profile_email" />
 
     <LinearLayout
         android:id="@+id/user_stat"
@@ -56,77 +55,120 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:padding="16dp"
-        android:background="@color/neutral_100"
+        android:background="@drawable/rounded_background"
         app:layout_constraintTop_toBottomOf="@id/edit_profile_button">
 
-        <TextView
-            android:id="@+id/weight"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="74 Kg"
-            android:textAppearance="@style/semibold_16"
-            android:textColor="@color/neutral_700" />
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/height"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="176 Cm"
-            android:textAppearance="@style/semibold_16"
-            android:textColor="@color/neutral_700" />
+            <TextView
+                android:id="@+id/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="74 Kg"
+                android:textAppearance="@style/semibold_16"
+                android:textColor="@color/neutral_700" />
 
-        <TextView
-            android:id="@+id/activity_category"
+            <TextView
+                android:id="@+id/weight_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/weight"
+                android:textAppearance="@style/regular_10"
+                android:textColor="@color/primary_200" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Standard"
-            android:textAppearance="@style/semibold_16"
-            android:textColor="@color/neutral_700" />
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="176 Cm"
+                android:textAppearance="@style/semibold_16"
+                android:textColor="@color/neutral_700" />
+
+            <TextView
+                android:id="@+id/height_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/height"
+                android:textAppearance="@style/regular_10"
+                android:textColor="@color/primary_200" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/activity_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Standard"
+                android:textAppearance="@style/semibold_16"
+                android:textColor="@color/neutral_700" />
+
+            <TextView
+                android:id="@+id/activity_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/activity_category"
+                android:textAppearance="@style/regular_10"
+                android:textColor="@color/primary_200" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintTop_toBottomOf="@id/user_stat">
-
-        <TextView
-            android:id="@+id/theme_preference"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Theme Preference"
-            android:textAppearance="@style/regular_14"
-            android:textColor="@color/neutral_700"
-            android:drawableStart="@drawable/ic_theme"
-            android:drawablePadding="8dp" />
 
         <TextView
             android:id="@+id/about_developer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="About Developer"
+            android:text="@string/about_developer"
             android:textAppearance="@style/regular_14"
             android:textColor="@color/neutral_700"
-            android:drawableStart="@drawable/ic_about"
-            android:drawablePadding="8dp" />
+            android:drawablePadding="8dp"
+            app:drawableStartCompat="@drawable/ic_about" />
 
         <TextView
             android:id="@+id/log_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Log Out"
+            android:layout_marginTop="20dp"
+            android:text="@string/log_out"
             android:textAppearance="@style/regular_14"
             android:textColor="@color/neutral_700"
-            android:drawableStart="@drawable/ic_logout"
-            android:drawablePadding="8dp" />
+            android:drawablePadding="8dp"
+            app:drawableStartCompat="@drawable/ic_logout" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

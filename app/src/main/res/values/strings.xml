@@ -103,4 +103,8 @@
     <string name="recipes_result">Recipes Result</string>
     <string name="name_cannot_be_empty">Name Cannot Be Empty</string>
     <string name="name">Name</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="about_developer">About Developer</string>
+    <string name="log_out">Log Out</string>
+    <string name="activity_category">Activity Category</string>
 </resources>
