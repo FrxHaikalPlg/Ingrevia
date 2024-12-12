@@ -2,12 +2,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:layout_marginTop="20dp">
 
-    <TextView
-        android:id="@+id/tv_nutrition_fact"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/nutritions_fact"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/chartSodium"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:indeterminate="false"
+            android:indicatorColor="@color/primary_200"
+            android:progress="50"
+            android:trackColor="@color/neutral_300"
+            android:layout_marginEnd="20dp"/>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/chartFats"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:indeterminate="false"
+            android:progress="30"
+            android:trackColor="@color/neutral_300"
+            android:indicatorColor="@color/primary_200"
+            android:layout_marginEnd="20dp"/>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/chartProtein"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:indeterminate="false"
+            android:progress="70"
+            android:trackColor="@color/neutral_300"
+            android:indicatorColor="@color/primary_200" />
+    </LinearLayout>
 </LinearLayout>

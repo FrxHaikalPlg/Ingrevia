@@ -55,4 +55,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation (libs.androidx.datastore.preferences)
+    implementation("com.google.android.material:material:1.9.0")
 }
