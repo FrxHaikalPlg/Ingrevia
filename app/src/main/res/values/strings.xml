@@ -109,4 +109,5 @@
     <string name="activity_category">Activity Category</string>
     <string name="profile">Profile</string>
     <string name="popular">Popular</string>
+    <string name="enter_your_email_below_and_we_ll_help_you_reset_it_to_get_back_to_finding_recipes">Enter your email below, and we’ll help you reset it to get back to finding recipes!</string>
 </resources>
