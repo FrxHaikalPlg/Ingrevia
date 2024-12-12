@@ -101,4 +101,6 @@
     <string name="select_cook_and_enjoy">Select, Cook, and Enjoy</string>
     <string name="search">Search</string>
     <string name="recipes_result">Recipes Result</string>
+    <string name="name_cannot_be_empty">Name Cannot Be Empty</string>
+    <string name="name">Name</string>
 </resources>
