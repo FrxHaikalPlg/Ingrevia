@@ -108,7 +108,12 @@ class IntroductionActivity : AppCompatActivity() {
     private fun setupButtons() {
         binding.nextButton.setOnClickListener {
             when (binding.viewPager.currentItem) {
-                2 -> navigateToLogin()
+                2 -> {
+                    lifecycleScope.launch {
+                        userPreferences.clearUserSession()
+                        navigateToLogin()
+                    }
+                }
                 else -> binding.viewPager.currentItem += 1
             }
         }

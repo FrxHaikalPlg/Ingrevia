@@ -1,4 +1,4 @@
-package com.example.app.ui.profile
+package com.frxhaikal_plg.ingrevia.ui.profile
 
 import android.Manifest
 import android.net.Uri

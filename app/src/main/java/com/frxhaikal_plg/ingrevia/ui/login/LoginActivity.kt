@@ -7,17 +7,23 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.ViewModelProvider
 import com.frxhaikal_plg.ingrevia.MainActivity
 import com.frxhaikal_plg.ingrevia.R
 import com.frxhaikal_plg.ingrevia.data.local.UserPreferences
+import com.frxhaikal_plg.ingrevia.data.network.NetworkResult
+import com.frxhaikal_plg.ingrevia.data.repository.AuthRepository
 import com.frxhaikal_plg.ingrevia.databinding.ActivityLoginBinding
 import com.frxhaikal_plg.ingrevia.ui.RegisterActivity
 import com.frxhaikal_plg.ingrevia.ui.introduction.IntroductionActivity
+import com.frxhaikal_plg.ingrevia.data.remote.api.RetrofitClient
+import com.frxhaikal_plg.ingrevia.data.remote.api.ApiService
+import com.frxhaikal_plg.ingrevia.data.remote.source.RemoteDataSource
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var userPreferences: UserPreferences
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,11 +31,42 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
-        userPreferences = UserPreferences(this)
-        
+        setupViewModel()
         setupButtons()
+        observeLoginState()
     }
-    
+
+    private fun setupViewModel() {
+        val userPreferences = UserPreferences(this)
+        val retrofit = RetrofitClient.getInstance()
+        val apiService = retrofit.create(ApiService::class.java)
+        val remoteDataSource = RemoteDataSource(apiService)
+        val repository = AuthRepository(remoteDataSource, userPreferences)
+        viewModel = ViewModelProvider(
+            this,
+            LoginViewModelFactory(repository)
+        )[LoginViewModel::class.java]
+    }
+
+    private fun observeLoginState() {
+        lifecycleScope.launch {
+            viewModel.loginState.collect { result ->
+                when (result) {
+                    is NetworkResult.Loading -> setLoading(true)
+                    is NetworkResult.Success -> {
+                        setLoading(false)
+                        navigateToMain()
+                    }
+                    is NetworkResult.Error -> {
+                        setLoading(false)
+                        showError(result.message)
+                    }
+                    null -> { /* Initial state, do nothing */ }
+                }
+            }
+        }
+    }
+
     private fun setupButtons() {
         binding.backArrow.setOnClickListener {
             startActivity(Intent(this, IntroductionActivity::class.java))
@@ -37,11 +74,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            if (isInputValid()) {
-                handleLogin()
-            } else {
-                Toast.makeText(this, getString(R.string.please_complete_login), Toast.LENGTH_SHORT).show()
-            }
+            handleLogin()
         }
         
         binding.tvRegister.setOnClickListener {
@@ -50,10 +83,6 @@ class LoginActivity : AppCompatActivity() {
 
         binding.forgotPass.setOnClickListener {
             // TODO: Implementasi forgot password
-        }
-
-        binding.googleButton.setOnClickListener {
-            handleGoogleSignIn()
         }
     }
     
@@ -65,29 +94,23 @@ class LoginActivity : AppCompatActivity() {
     }
     
     private fun handleLogin() {
-        setLoading(true)
-        lifecycleScope.launch {
-            try {
-                // TODO: Implementasi login ke API
-                userPreferences.setLoggedIn(true)
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                finishAffinity()
-            } catch (e: Exception) {
-                Toast.makeText(
-                    this@LoginActivity, 
-                    getString(R.string.login_failed, e.message), 
-                    Toast.LENGTH_SHORT
-                ).show()
-            } finally {
-                setLoading(false)
-            }
+        if (!isInputValid()) {
+            Toast.makeText(this, getString(R.string.please_complete_login), Toast.LENGTH_SHORT).show()
+            return
         }
+
+        val email = binding.edLoginEmail.text.toString()
+        val password = binding.edLoginPassword.text.toString()
+        viewModel.login(email, password)
     }
 
-    private fun handleGoogleSignIn() {
-        setLoading(true)
-        // TODO: Implementasi Google Sign In
-        setLoading(false)
+    private fun navigateToMain() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finishAffinity()
+    }
+
+    private fun showError(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun setLoading(isLoading: Boolean) {
@@ -96,7 +119,6 @@ class LoginActivity : AppCompatActivity() {
             binding.loading.loadingText.text = getString(R.string.logging_in)
         }
         binding.btnLogin.isEnabled = !isLoading
-        binding.googleButton.isEnabled = !isLoading
         binding.edLoginEmail.isEnabled = !isLoading
         binding.edLoginPassword.isEnabled = !isLoading
     }
