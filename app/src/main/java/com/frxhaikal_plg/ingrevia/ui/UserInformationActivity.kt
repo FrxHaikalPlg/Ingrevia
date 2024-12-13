@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 class UserInformationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserInformationBinding
     private var selectedActivityLevel: Int = 0
+    private var selectedGender: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,7 @@ class UserInformationActivity : AppCompatActivity() {
         
         setupButtons()
         setupRadioGroup()
+        setupGenderRadioGroup()
     }
     
     private fun setupRadioGroup() {
@@ -34,6 +36,16 @@ class UserInformationActivity : AppCompatActivity() {
                 R.id.radio_advanced -> 4
                 R.id.radio_comprehensive -> 5
                 else -> 0
+            }
+        }
+    }
+    
+    private fun setupGenderRadioGroup() {
+        binding.genderRadioGroup.setOnCheckedChangeListener { _, checkedId ->
+            selectedGender = when (checkedId) {
+                R.id.rbMale -> "male"
+                R.id.rbFemale -> "female"
+                else -> ""
             }
         }
     }
@@ -55,9 +67,12 @@ class UserInformationActivity : AppCompatActivity() {
     private fun isInputValid(): Boolean {
         return binding.edHeight.error == null && 
                binding.edWeight.error == null &&
+               binding.edAge.error == null &&
                binding.edHeight.text?.isNotEmpty() == true &&
                binding.edWeight.text?.isNotEmpty() == true &&
-               selectedActivityLevel != 0
+               binding.edAge.text?.isNotEmpty() == true &&
+               selectedActivityLevel != 0 &&
+               selectedGender.isNotEmpty()
     }
     
     private fun handleSaveInformation() {
@@ -66,7 +81,9 @@ class UserInformationActivity : AppCompatActivity() {
                 val userInfo = mapOf(
                     "height" to binding.edHeight.text.toString().toInt(),
                     "weight" to binding.edWeight.text.toString().toInt(),
-                    "activity_level" to selectedActivityLevel
+                    "age" to binding.edAge.text.toString().toInt(),
+                    "activity_level" to selectedActivityLevel,
+                    "gender" to selectedGender
                 )
                 
                 startActivity(Intent(this@UserInformationActivity, MainActivity::class.java))

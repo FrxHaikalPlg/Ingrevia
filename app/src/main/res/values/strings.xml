@@ -116,4 +116,5 @@
     <string name="reset_password_description">Click the button below to continue resetting the password in the browser.</string>
     <string name="reset_password">Reset Password</string>
     <string name="unexpected_error">Unexpected Error Occure</string>
+    <string name="register_success_please_login">Registration successful! Please login with your account.</string>
 </resources>

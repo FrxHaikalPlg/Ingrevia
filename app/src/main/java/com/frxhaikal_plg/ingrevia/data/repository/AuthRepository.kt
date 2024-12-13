@@ -4,6 +4,7 @@ import com.frxhaikal_plg.ingrevia.data.local.UserPreferences
 import com.frxhaikal_plg.ingrevia.data.network.NetworkResult
 import com.frxhaikal_plg.ingrevia.data.remote.model.auth.LoginResponse
 import com.frxhaikal_plg.ingrevia.data.remote.model.auth.ForgotPasswordResponse
+import com.frxhaikal_plg.ingrevia.data.remote.model.auth.RegisterResponse
 import com.frxhaikal_plg.ingrevia.data.remote.source.RemoteDataSource
 import kotlinx.coroutines.flow.Flow
 
@@ -26,5 +27,9 @@ class AuthRepository(
 
     suspend fun forgotPassword(email: String): Flow<NetworkResult<ForgotPasswordResponse>> {
         return remoteDataSource.forgotPassword(email)
+    }
+
+    suspend fun register(email: String, password: String, name: String): Flow<NetworkResult<RegisterResponse>> {
+        return remoteDataSource.register(email, password, name)
     }
 } 

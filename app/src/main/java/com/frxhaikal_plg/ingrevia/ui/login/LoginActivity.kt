@@ -14,7 +14,7 @@ import com.frxhaikal_plg.ingrevia.data.local.UserPreferences
 import com.frxhaikal_plg.ingrevia.data.network.NetworkResult
 import com.frxhaikal_plg.ingrevia.data.repository.AuthRepository
 import com.frxhaikal_plg.ingrevia.databinding.ActivityLoginBinding
-import com.frxhaikal_plg.ingrevia.ui.RegisterActivity
+import com.frxhaikal_plg.ingrevia.ui.register.RegisterActivity
 import com.frxhaikal_plg.ingrevia.ui.introduction.IntroductionActivity
 import com.frxhaikal_plg.ingrevia.data.remote.api.RetrofitClient
 import com.frxhaikal_plg.ingrevia.data.remote.api.ApiService

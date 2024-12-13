@@ -82,27 +82,30 @@
 
         <RadioGroup
             android:id="@+id/genderRadioGroup"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@id/gender"
+            app:layout_constraintEnd_toEndOf="@id/weightInputLayout"
             app:layout_constraintTop_toBottomOf="@id/gender">
 
             <RadioButton
                 android:id="@+id/rbMale"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/male"
+                android:layout_marginRight="8dp"
                 android:textColor="@color/neutral_700"
                 style="@style/CustomRadioButton"
                 android:textAppearance="@style/regular_14" />
 
             <RadioButton
                 android:id="@+id/rbFemale"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_weight="1"
                 android:text="@string/female"
                 android:textColor="@color/neutral_700"
                 style="@style/CustomRadioButton"
