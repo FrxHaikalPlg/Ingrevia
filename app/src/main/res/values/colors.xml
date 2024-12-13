@@ -21,4 +21,6 @@
     <color name="neutral_500">#464646</color>
     <color name="neutral_600">#1F1F1F</color>
     <color name="neutral_700">#0C0C0C</color>
+    <color name="chip_background">#F5F5F5</color>
+    <color name="chip_text">#333333</color>
 </resources>
