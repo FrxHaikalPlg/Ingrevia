@@ -125,51 +125,18 @@
         app:layout_constraintTop_toBottomOf="@+id/ideal_menu_sub" />
 
     <TextView
-        android:id="@+id/categories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:lineSpacingExtra="-5sp"
-        android:layout_marginTop="20dp"
-        android:text="@string/categories"
-        android:textAppearance="@style/medium_18"
-        android:textColor="@color/neutral_500"
-        app:layout_constraintStart_toStartOf="@+id/ideal_menu_sub"
-        app:layout_constraintTop_toBottomOf="@+id/rvidealmenu" />
-
-    <TextView
-        android:id="@+id/see_more_categories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:lineSpacingExtra="-5sp"
-        android:text="@string/see_more"
-        android:layout_marginTop="20dp"
-        android:textAppearance="@style/regular_14"
-        android:textColor="@color/neutral_500"
-        app:layout_constraintEnd_toEndOf="@+id/search_bar"
-        app:layout_constraintTop_toBottomOf="@+id/rvidealmenu" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvcategoriesmenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/categories"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <TextView
         android:id="@+id/popular_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="4dp"
         android:gravity="center_vertical"
         android:lineSpacingExtra="-5sp"
         android:text="@string/discover_popular_recipes_today"
         android:textAppearance="@style/medium_18"
         android:textColor="@color/neutral_500"
-        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="@+id/ideal_menu_sub"
-        app:layout_constraintTop_toBottomOf="@+id/rvcategoriesmenu" />
+        app:layout_constraintTop_toBottomOf="@+id/rvidealmenu" />
 
     <TextView
         android:id="@+id/popular_menu_sub"
@@ -180,6 +147,7 @@
         android:text="@string/delicious_recipes_anytime"
         android:textAppearance="@style/regular_14"
         android:textColor="@color/neutral_500"
+
         app:layout_constraintStart_toStartOf="@+id/popular_menu"
         app:layout_constraintTop_toBottomOf="@+id/popular_menu" />
 

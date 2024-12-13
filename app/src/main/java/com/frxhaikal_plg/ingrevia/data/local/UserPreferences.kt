@@ -78,4 +78,29 @@ class UserPreferences(private val context: Context) {
         .map { preferences ->
             preferences[HAS_USER_INFO_KEY] ?: false
         }
+
+    val height: Flow<String> = context.dataStore.data
+        .map { preferences ->
+            preferences[HEIGHT_KEY] ?: "0"
+        }
+
+    val weight: Flow<String> = context.dataStore.data
+        .map { preferences ->
+            preferences[WEIGHT_KEY] ?: "0"
+        }
+
+    val age: Flow<String> = context.dataStore.data
+        .map { preferences ->
+            preferences[AGE_KEY] ?: "0"
+        }
+
+    val activityLevel: Flow<String> = context.dataStore.data
+        .map { preferences ->
+            preferences[ACTIVITY_LEVEL_KEY] ?: "0"
+        }
+
+    val gender: Flow<String> = context.dataStore.data
+        .map { preferences ->
+            preferences[GENDER_KEY] ?: ""
+        }
 } 
