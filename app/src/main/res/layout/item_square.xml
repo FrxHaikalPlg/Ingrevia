@@ -18,6 +18,12 @@
             android:scaleType="centerCrop"
             tools:src="@drawable/ic_launcher_background" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/gradient_black_to_transparent" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
