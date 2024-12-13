@@ -9,29 +9,49 @@ import androidx.viewpager2.widget.ViewPager2
 import com.frxhaikal_plg.ingrevia.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.bumptech.glide.Glide
+import com.frxhaikal_plg.ingrevia.data.remote.model.RecommendedRecipesItem
+import com.frxhaikal_plg.ingrevia.databinding.ActivityRecipesDetailBinding
+import com.frxhaikal_plg.ingrevia.ui.home.HomeFragment
 
 class RecipesDetailActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityRecipesDetailBinding
+    var recipe: RecommendedRecipesItem? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_recipes_detail)
+        binding = ActivityRecipesDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        recipe = intent.getParcelableExtra(HomeFragment.RECIPE_EXTRA)
+        
+        setupViews()
+        setupViewPager()
+        setupBackButton()
+    }
+
+    private fun setupViews() {
+        recipe?.let { recipe ->
+            binding.apply {
+                profileTitle.text = recipe.title
+                caloriesValue.text = "${recipe.calories} cal"
+                stepNumber.text = "${recipe.totalSteps} steps"
+                
+                Glide.with(this@RecipesDetailActivity)
+                    .load(recipe.imageUrl)
+                    .placeholder(R.drawable.ic_place_holder)
+                    .error(R.drawable.ic_place_holder)
+                    .into(ivRecipePhoto)
+            }
         }
+    }
 
-        // Inisialisasi View
-        val viewPager = findViewById<ViewPager2>(R.id.view_pager)
-        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
+    private fun setupViewPager() {
+        val adapter = RecipesPagerAdapter(this, recipe)
+        binding.viewPager.adapter = adapter
 
-        // Set up ViewPager2 and TabLayout
-        val adapter = RecipesPagerAdapter(this)
-        viewPager.adapter = adapter
-
-        // Connect TabLayout with ViewPager2
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = when (position) {
                 0 -> "Nutrition Facts"
                 1 -> "Ingredients"
@@ -39,5 +59,11 @@ class RecipesDetailActivity : AppCompatActivity() {
                 else -> null
             }
         }.attach()
+    }
+
+    private fun setupBackButton() {
+        binding.backArrow.setOnClickListener {
+            finish()
+        }
     }
 }

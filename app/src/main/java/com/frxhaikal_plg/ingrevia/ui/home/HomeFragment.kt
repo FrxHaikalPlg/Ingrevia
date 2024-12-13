@@ -1,5 +1,6 @@
 package com.frxhaikal_plg.ingrevia.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.frxhaikal_plg.ingrevia.data.remote.api.MLApiConfig
 import com.frxhaikal_plg.ingrevia.data.remote.model.RecommendationRequest
 import com.frxhaikal_plg.ingrevia.databinding.FragmentHomeBinding
 import com.frxhaikal_plg.ingrevia.ui.home.adapter.IdealMenuAdapter
+import com.frxhaikal_plg.ingrevia.ui.detailrecipes.RecipesDetailActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
@@ -65,8 +67,11 @@ class HomeFragment : Fragment() {
                         val adapter = IdealMenuAdapter(
                             recipes.filterNotNull()
                         ) { recipe ->
-                            // Handle click
-                            // Nanti bisa ditambahkan intent ke RecipeDetailActivity
+                            // Navigate to detail
+                            val intent = Intent(requireContext(), RecipesDetailActivity::class.java).apply {
+                                putExtra(RECIPE_EXTRA, recipe)
+                            }
+                            startActivity(intent)
                         }
                         binding.rvidealmenu.adapter = adapter
                     }
@@ -103,5 +108,9 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        const val RECIPE_EXTRA = "recipe_extra"
     }
 }

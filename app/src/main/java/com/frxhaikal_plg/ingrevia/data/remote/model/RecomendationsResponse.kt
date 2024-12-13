@@ -1,19 +1,24 @@
 package com.frxhaikal_plg.ingrevia.data.remote.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class RecomendationsResponse(
 
 	@field:SerializedName("bmi_status")
 	val bmiStatus: String? = null,
 
 	@field:SerializedName("target_calories_per_meal")
-	val targetCaloriesPerMeal: Any? = null,
+	val targetCaloriesPerMeal: String? = null,
 
 	@field:SerializedName("recommended_recipes")
 	val recommendedRecipes: List<RecommendedRecipesItem?>? = null
-)
+) : Parcelable
 
+@Parcelize
 data class RecommendedRecipesItem(
 
 	@field:SerializedName("date")
@@ -23,7 +28,7 @@ data class RecommendedRecipesItem(
 	val imageUrl: String? = null,
 
 	@field:SerializedName("rating")
-	val rating: Any? = null,
+	val rating: Int? = null,
 
 	@field:SerializedName("calories")
 	val calories: Int? = null,
@@ -60,4 +65,4 @@ data class RecommendedRecipesItem(
 
 	@field:SerializedName("desc")
 	val desc: String? = null
-)
+) : Parcelable
