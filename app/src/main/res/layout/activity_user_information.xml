@@ -182,7 +182,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <com.frxhaikal_plg.ingrevia.ui.customview.CustomHeightEditText
+            <com.frxhaikal_plg.ingrevia.ui.customview.CustomAgeEditText
                 android:id="@+id/ed_age"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

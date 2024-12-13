@@ -117,4 +117,9 @@
     <string name="reset_password">Reset Password</string>
     <string name="unexpected_error">Unexpected Error Occure</string>
     <string name="register_success_please_login">Registration successful! Please login with your account.</string>
+    <string name="welcome">Welcome!</string>
+    <string name="user_info_needed_message">In order to get appropriate menu recommendations, we need some information about you.</string>
+    <string name="continue_text">Continue</string>
+    <string name="minimum_age_error">Minimum age is 13 years</string>
+    <string name="maximum_age_error">Maximum age is 100 years</string>
 </resources>

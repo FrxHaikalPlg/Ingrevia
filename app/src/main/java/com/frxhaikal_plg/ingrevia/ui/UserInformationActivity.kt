@@ -8,11 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.frxhaikal_plg.ingrevia.MainActivity
 import com.frxhaikal_plg.ingrevia.R
+import com.frxhaikal_plg.ingrevia.data.local.UserPreferences
+import com.frxhaikal_plg.ingrevia.data.local.model.UserInfo
 import com.frxhaikal_plg.ingrevia.databinding.ActivityUserInformationBinding
 import kotlinx.coroutines.launch
 
 class UserInformationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserInformationBinding
+    private lateinit var userPreferences: UserPreferences
     private var selectedActivityLevel: Int = 0
     private var selectedGender: String = ""
 
@@ -22,6 +25,7 @@ class UserInformationActivity : AppCompatActivity() {
         binding = ActivityUserInformationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
+        userPreferences = UserPreferences(this)
         setupButtons()
         setupRadioGroup()
         setupGenderRadioGroup()
@@ -78,18 +82,24 @@ class UserInformationActivity : AppCompatActivity() {
     private fun handleSaveInformation() {
         lifecycleScope.launch {
             try {
-                val userInfo = mapOf(
-                    "height" to binding.edHeight.text.toString().toInt(),
-                    "weight" to binding.edWeight.text.toString().toInt(),
-                    "age" to binding.edAge.text.toString().toInt(),
-                    "activity_level" to selectedActivityLevel,
-                    "gender" to selectedGender
+                val userInfo = UserInfo(
+                    height = binding.edHeight.text.toString().toInt(),
+                    weight = binding.edWeight.text.toString().toInt(),
+                    age = binding.edAge.text.toString().toInt(),
+                    activityLevel = selectedActivityLevel,
+                    gender = selectedGender
                 )
+                
+                userPreferences.saveUserInfo(userInfo)
                 
                 startActivity(Intent(this@UserInformationActivity, MainActivity::class.java))
                 finishAffinity()
             } catch (e: Exception) {
-                Toast.makeText(this@UserInformationActivity, getString(R.string.failed_save_data, e.message), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@UserInformationActivity, 
+                    getString(R.string.failed_save_data, e.message), 
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

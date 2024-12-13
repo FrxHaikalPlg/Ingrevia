@@ -7,6 +7,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import com.frxhaikal_plg.ingrevia.data.local.model.UserInfo
 
 class UserPreferences(private val context: Context) {
 
@@ -17,6 +18,12 @@ class UserPreferences(private val context: Context) {
         private val EMAIL_KEY = stringPreferencesKey("user_email")
         private val DISPLAY_NAME_KEY = stringPreferencesKey("user_display_name")
         private val IS_LOGGED_IN_KEY = booleanPreferencesKey("is_logged_in")
+        private val HAS_USER_INFO_KEY = booleanPreferencesKey("has_user_info")
+        private val HEIGHT_KEY = stringPreferencesKey("height")
+        private val WEIGHT_KEY = stringPreferencesKey("weight")
+        private val AGE_KEY = stringPreferencesKey("age")
+        private val ACTIVITY_LEVEL_KEY = stringPreferencesKey("activity_level")
+        private val GENDER_KEY = stringPreferencesKey("gender")
     }
 
     suspend fun saveUserSession(
@@ -55,4 +62,20 @@ class UserPreferences(private val context: Context) {
             preferences[IS_LOGGED_IN_KEY] = isLoggedIn
         }
     }
+
+    suspend fun saveUserInfo(userInfo: UserInfo) {
+        context.dataStore.edit { preferences ->
+            preferences[HEIGHT_KEY] = userInfo.height.toString()
+            preferences[WEIGHT_KEY] = userInfo.weight.toString()
+            preferences[AGE_KEY] = userInfo.age.toString()
+            preferences[ACTIVITY_LEVEL_KEY] = userInfo.activityLevel.toString()
+            preferences[GENDER_KEY] = userInfo.gender
+            preferences[HAS_USER_INFO_KEY] = true
+        }
+    }
+
+    val hasUserInfo: Flow<Boolean> = context.dataStore.data
+        .map { preferences ->
+            preferences[HAS_USER_INFO_KEY] ?: false
+        }
 } 

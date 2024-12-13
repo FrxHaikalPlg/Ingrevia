@@ -29,12 +29,19 @@ class SplashActivity : AppCompatActivity() {
     }
     
     private fun navigateToNextScreen(isLoggedIn: Boolean) {
-        val intent = if (isLoggedIn) {
-            Intent(this, MainActivity::class.java)
-        } else {
-            Intent(this, IntroductionActivity::class.java)
+        lifecycleScope.launch {
+            val intent = if (isLoggedIn) {
+                val hasUserInfo = userPreferences.hasUserInfo.first()
+                if (hasUserInfo) {
+                    Intent(this@SplashActivity, MainActivity::class.java)
+                } else {
+                    Intent(this@SplashActivity, UserInformationActivity::class.java)
+                }
+            } else {
+                Intent(this@SplashActivity, IntroductionActivity::class.java)
+            }
+            startActivity(intent)
+            finish()
         }
-        startActivity(intent)
-        finish()
     }
 }

@@ -19,12 +19,15 @@ import com.frxhaikal_plg.ingrevia.ui.introduction.IntroductionActivity
 import com.frxhaikal_plg.ingrevia.data.remote.api.RetrofitClient
 import com.frxhaikal_plg.ingrevia.data.remote.api.ApiService
 import com.frxhaikal_plg.ingrevia.data.remote.source.RemoteDataSource
+import com.frxhaikal_plg.ingrevia.ui.dialog.UserInfoDialog
 import com.frxhaikal_plg.ingrevia.ui.forgotpassword.ForgotPasswordActivity
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var viewModel: LoginViewModel
+    private lateinit var userPreferences: UserPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +35,14 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
+        userPreferences = UserPreferences(this)
+        
         setupViewModel()
         setupButtons()
         observeLoginState()
     }
 
     private fun setupViewModel() {
-        val userPreferences = UserPreferences(this)
         val retrofit = RetrofitClient.getInstance()
         val apiService = retrofit.create(ApiService::class.java)
         val remoteDataSource = RemoteDataSource(apiService)
@@ -56,14 +60,25 @@ class LoginActivity : AppCompatActivity() {
                     is NetworkResult.Loading -> setLoading(true)
                     is NetworkResult.Success -> {
                         setLoading(false)
-                        navigateToMain()
+                        checkUserInfo()
                     }
                     is NetworkResult.Error -> {
                         setLoading(false)
                         showError(result.message)
                     }
-                    null -> { /* Initial state, do nothing */ }
+                    null -> { /* Initial state */ }
                 }
+            }
+        }
+    }
+
+    private fun checkUserInfo() {
+        lifecycleScope.launch {
+            val hasUserInfo = userPreferences.hasUserInfo.first()
+            if (hasUserInfo) {
+                navigateToMain()
+            } else {
+                UserInfoDialog().show(supportFragmentManager, UserInfoDialog.TAG)
             }
         }
     }
