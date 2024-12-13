@@ -110,4 +110,10 @@
     <string name="profile">Profile</string>
     <string name="popular">Popular</string>
     <string name="enter_your_email_below_and_we_ll_help_you_reset_it_to_get_back_to_finding_recipes">Enter your email below, and we’ll help you reset it to get back to finding recipes!</string>
+    <string name="please_enter_email">Enter your email</string>
+    <string name="sending_reset_link">Sending reset link...</string>
+    <string name="reset_password_title">Reset Password</string>
+    <string name="reset_password_description">Click the button below to continue resetting the password in the browser.</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="unexpected_error">Unexpected Error Occure</string>
 </resources>

@@ -19,6 +19,7 @@ import com.frxhaikal_plg.ingrevia.ui.introduction.IntroductionActivity
 import com.frxhaikal_plg.ingrevia.data.remote.api.RetrofitClient
 import com.frxhaikal_plg.ingrevia.data.remote.api.ApiService
 import com.frxhaikal_plg.ingrevia.data.remote.source.RemoteDataSource
+import com.frxhaikal_plg.ingrevia.ui.forgotpassword.ForgotPasswordActivity
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
@@ -82,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.forgotPass.setOnClickListener {
-            // TODO: Implementasi forgot password
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
     }
     
